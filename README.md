@@ -6,6 +6,7 @@ Make sure you have git installed if not get from here https://www.atlassian.com/
 
 ## Step 2
 Open cmd or powershelll in folder where you want to clone repository and copy following command
+
 git clone https://github.com/TalhaBinAfzal/create-tron-offline-wallet
 
 ## Step 3
