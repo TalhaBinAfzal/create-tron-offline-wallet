@@ -1,13 +1,10 @@
-let { HdTronPayments } = require('@faast/tron-payments');
+var tron = require('@faast/tron-payments');
 
-let keys = HdTronPayments.generateNewKeys();
-console.log("public key: "+keys.xpub);
-console.log("private key: "+keys.xprv);
-
- let tronPayments = new HdTronPayments({ hdKey: keys.xprv }); // xpub or xprv can be used
- let depositAddress = tronPayments.getAddress(1234);
- let privateKey = tronPayments.getPrivateKey(1234);
- console.log(depositAddress);
- console.log(privateKey);
-
-// console.log(tronPayments.isValidAddress(depositAddress));
+var keys = tron.HdTronPayments.generateNewKeys();
+var tronPayments = new tron.HdTronPayments({ hdKey: keys.xprv });
+tronPayments.getPayport(0).then(adr => {
+    var address = adr.address;
+    tronPayments.getPrivateKey(0).then(wif => {
+        console.log(adr.address)
+    })
+});
